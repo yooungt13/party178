@@ -5,15 +5,12 @@ title: 商圈
 action: 保存
 ---
 
-<div class="user user-form2 mt-30">
+<div class="user user-form2 mt-30" id="container">
     <div class="ui-form-item">
         <label for="#">城市</label>
         <div class="ui-form-item">
             <div class="ui-select">
-                <select name="address">
-                    <option value="北京">北京</option>
-                    <option value="上海">上海</option>
-                </select>
+                <select class="city" name="address" data-value="北京"></select>
             </div>
         </div>
     </div>
@@ -21,13 +18,7 @@ action: 保存
         <label for="#">地区</label>
         <div class="ui-form-item">
             <div class="ui-select">
-                <select name="address">
-                    <option value="朝阳区">朝阳区</option>
-                    <option value="海淀区">海淀区</option>
-                    <option value="东城区">东城区</option>
-                    <option value="西城区">西城区</option>
-                    <option value="其他">其他</option>
-                </select>
+                <select class="area" name="address" data-value="朝阳区"></select>
             </div>
         </div>
     </div>
@@ -35,40 +26,18 @@ action: 保存
         <label for="#">商圈</label>
         <div class="ui-form-item">
             <div class="ui-select">
-                <select name="address">
-                    <option value="三里屯">三里屯</option>
-                    <option value="国贸">国贸</option>
-                    <option value="工体">工体</option>
-                    <option value="望京">望京</option>
-                    <option value="亮马桥">亮马桥</option>
-                    <option value="亚运村">亚运村</option>
-                    <option value="蓝色港湾">蓝色港湾</option>
-                    <option value="朝阳公园">朝阳公园</option>
-                    <option value="百子湾">百子湾</option>
-                    <option value="798">798</option>
-                    <option value="人民大学">人民大学</option>
-                    <option value="知春路">知春路</option>
-                    <option value="建国门">建国门</option>
-                    <option value="广渠门">广渠门</option>
-                    <option value="东四十条">东四十条</option>
-                    <option value="金融街">金融街</option>
-                    <option value="其他">其他</option>
-                </select>
-				<!-- 上海地区商圈
-				<select name="type">
-                    <option value="陆家嘴">陆家嘴</option>
-                    <option value="世纪公园">世纪公园</option>
-                    <option value="徐家汇">徐家汇</option>
-                    <option value="衡山路">衡山路</option>
-                    <option value="人民广场">人民广场</option>
-                    <option value="南京东路">南京东路</option>
-                    <option value="外滩">外滩</option>
-                    <option value="淮海路">淮海路</option>
-                    <option value="静安寺">静安寺</option>
-                    <option value="南京西路">南京西路</option>
-                    <option value="其他">其他</option>
-                </select> -->
+                <select class="poi" name="address" data-value="三里屯"></select>
             </div>
         </div>
     </div>
 </div><!-- user name end -->
+
+<script type="text/javascript">
+    require(['zepto', 'util/cxselect'], function($, cs) {
+        $('#container').cxSelect({
+            url: 'http://hello13.net/projects/party178/static/json/poi.min.json',
+            selects: ['city', 'area', 'poi'],
+            nodata: 'hidden'
+        });
+    });
+</script>
