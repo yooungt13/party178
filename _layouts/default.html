@@ -13,7 +13,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <!--build:css /static/css/screen.min.css-->
+        <!--build:css http://hello13.net/projects/party178/static/css/screen.min.css-->
         <link rel="stylesheet" type="text/css" href="/static/css/common.css">
         <link rel="stylesheet" type="text/css" href="/static/css/screen.css">
         <link rel="stylesheet" type="text/css" href="/static/css/party.css">
@@ -44,7 +44,7 @@
         {{ content }}
 
         <script>
-            require(['zepto','fastclick'], function($, fc) {
+            require(['zepto','fastclick', 'util/msg'], function($, fc, msg) {
 
                 //选择城市
                 $(document).on('click', '#selectCityBtn, #selectCity', function(){
@@ -62,6 +62,9 @@
 
                 $(document).on('click', '.party-action', function(e){
                     // todo
+                    msg.alert('保存成功', function() {
+                        window.history.back();
+                    });
                 });
 
                 fc.attach(document.body);
