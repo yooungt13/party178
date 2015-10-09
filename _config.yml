@@ -7,11 +7,6 @@ permalink:   /:title
 highlighter: pygments
 markdown:    rdiscount
 
-paginate: 10
-paginate_path: '/posts/:num'
-
-excerpt_separator: "\n\n\n"
-
 #Basic Configuration
 title:       178
 
